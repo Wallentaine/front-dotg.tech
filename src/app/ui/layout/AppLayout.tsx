@@ -1,24 +1,21 @@
 import { JSX } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { RoutesKeys } from '@app/lib/consts/routes';
-
+import { Outlet } from 'react-router-dom';
+import { AppShell } from '@mantine/core';
+import { Header } from '@app/ui/header/Header';
+import classes from './appLayout.module.scss';
+import { SeatSearchForm } from '@widgets/seat-search-form';
 
 export const AppLayout = (): JSX.Element => {
 
 	return (
-		<div>
-			<header>
-				<nav style={{ display: 'flex', gap: 10 }}>
-					<Link to={RoutesKeys.MAIN}>Main</Link>
-					<Link to={RoutesKeys.ABOUT}>About</Link>
-				</nav>
-			</header>
-			<main>
-				<Outlet/>
-			</main>
-			<footer>
-				Footer
-			</footer>
-		</div>
+		<AppShell header={{ height: '81px' }} className={classes['layout']}>
+			<Header/>
+			<AppShell.Main>
+				<SeatSearchForm/>
+				<div className={classes['main__content']}>
+					<Outlet/>
+				</div>
+			</AppShell.Main>
+		</AppShell>
 	);
 };
