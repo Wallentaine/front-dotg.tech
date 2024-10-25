@@ -33,6 +33,10 @@ jobs:
           ssh-keyscan -H -t ed25519 ${{ secrets.SERVER_IP }} >> /home/runner/.ssh/known_hosts
         env:
           SERVER_IP: ${{ secrets.SERVER_IP }}
+      
+      - name: Проверка доступности сервера
+        run: |
+          ping -c 4 ${{ secrets.SERVER_IP }} || { echo "Сервер недоступен"; exit 1; }
 
       - name: Check Server Availability
         run: |
