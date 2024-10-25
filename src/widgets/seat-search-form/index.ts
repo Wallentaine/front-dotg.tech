@@ -1,0 +1,1 @@
+export { SeatSearchForm } from './ui/seat-search-form/SeatSearchForm';

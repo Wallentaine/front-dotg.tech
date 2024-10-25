@@ -1,0 +1,32 @@
+@use '@app/lib/styles/media.module';
+
+
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: 0;
+  @include media.appJustifyBreakpoints;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__logo {
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @media screen {
+
+    }
+
+  }
+
+}

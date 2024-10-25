@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { FieldValues, FormProvider, SubmitHandler, UseFormReturn } from 'react-hook-form';
-import { KeyboardKeys } from 'shared/types/KeyboardKeys';
+import { KeyboardKeys } from '@shared/consts/KeyboardKeys';
 
 type FormProps<T extends FieldValues> = {
 	children: ReactNode
