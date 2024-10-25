@@ -34,9 +34,6 @@ jobs:
         env:
           SERVER_IP: ${{ secrets.SERVER_IP }}
 
-      - name: Check Server Availability
-        run: |
-          ping -c 4 ${{ secrets.SERVER_IP }}
 
       - name: Connect to Server
         run: |
