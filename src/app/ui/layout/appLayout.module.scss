@@ -1,0 +1,9 @@
+@use '@app/lib/styles/media.module';
+
+.layout {
+  @include media.appJustifyBreakpoints
+}
+
+.main__content {
+  padding-top: 100px;
+}

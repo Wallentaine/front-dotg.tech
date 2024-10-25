@@ -1,0 +1,6 @@
+@use "@shared/styles/palette";
+
+.container {
+  border: 2px palette.$orange-1 solid;
+  border-radius: 17px
+}
