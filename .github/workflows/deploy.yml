@@ -34,9 +34,9 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
 
       - name: Connect to Server
-        run: sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "cd pixiepot.tech-api/ && git pull"
+        run: sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "cd front-dotg.tech/ && git pull"
         env:
           SSHPASS: ${{ secrets.SERVER_PASS }}
 
       - name: Restart Docker Compose
-        run: sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "cd pixiepot.tech-api/ && docker compose -f docker-compose.prod.yml down && docker compose -f docker-compose.prod.yml build && docker compose -f docker-compose.prod.yml up -d"
+        run: sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "cd front-dotg.tech/ && docker compose build && docker compose up -d build && docker system prune"
