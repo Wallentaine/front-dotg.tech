@@ -30,7 +30,7 @@ jobs:
 
       - name: Add server key to known_hosts
         run: |
-          ssh-keyscan -H -p ${{ secrets.SERVER_IP }} -t ed25519 ${{ secrets.SERVER_IP }} >> /home/runner/.ssh/known_hosts
+          ssh-keyscan -H -p ${{ secrets.SERVER_PORT }} -t ed25519 ${{ secrets.SERVER_IP }} >> /home/runner/.ssh/known_hosts
         env:
           SERVER_IP: ${{ secrets.SERVER_IP }}
 
@@ -38,7 +38,7 @@ jobs:
       - name: Connect to Server
         run: |
           set -e
-          sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} -p ${{ secrets.SERVER_IP }} "cd front-dotg.tech/ && git pull"
+          sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} -p ${{ secrets.SERVER_PORT }} "cd front-dotg.tech/ && git pull"
         env:
           SSHPASS: ${{ secrets.SERVER_PASS }}
 
