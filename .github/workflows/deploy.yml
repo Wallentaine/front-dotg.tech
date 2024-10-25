@@ -45,4 +45,4 @@ jobs:
       - name: Restart Docker Compose
         run: |
           set -e
-          sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} -p 1337 "cd front-dotg.tech/ && docker compose build && docker compose up -d build && docker system prune -f"
+          sshpass -p ${{ secrets.SERVER_PASS }} ssh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} -p 1337 "cd front-dotg.tech/ && docker compose build && docker compose up -d && docker system prune -f"
