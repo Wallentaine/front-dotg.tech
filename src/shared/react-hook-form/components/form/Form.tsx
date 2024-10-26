@@ -12,7 +12,7 @@ const Form = <T extends FieldValues, >({ children, onSubmit, methods }: FormProp
 	return (
 		<FormProvider {...methods}>
 			<form
-				style={{ width: 'inherit' }}
+				style={{ width: 'inherit'}}
 				noValidate
 				onSubmit={methods.handleSubmit(onSubmit)}
 				onKeyDown={(e) => {

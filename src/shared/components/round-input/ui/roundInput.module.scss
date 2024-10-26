@@ -1,0 +1,42 @@
+.input {
+  background-color: #FFF;
+  border: 1px solid #CED4DA;
+  border-radius: 10px 0 0 10px;
+  padding: 6px 0 6px 25px;
+
+  &_left {
+    border-radius: 10px 0 0 10px;
+
+  }
+
+  &_middle {
+    border-radius: 10px;
+  }
+
+  &_right {
+    border-radius: 0 10px 10px 0;
+  }
+
+  &__cross {
+    display: flex;
+    align-items: center;
+
+    & svg {
+      transition: 0.2s;
+
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+
+
+  }
+
+}
+
+.datePickerInput {
+  border-radius: 10px;
+  width: 300px;
+  padding-top: 0;
+  padding-bottom: 0;
+}

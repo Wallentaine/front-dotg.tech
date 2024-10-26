@@ -1,6 +1,6 @@
 export type SearchSeatFormData = {
 	from: string
 	to: string
-	arriveDate: string
-	leaveData: string
+	arriveDate: Date | null
+	leaveDate: Date | null
 }

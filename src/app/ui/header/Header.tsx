@@ -6,7 +6,6 @@ import { AppShell } from '@mantine/core';
 
 export const Header = (): JSX.Element => {
 	return (
-
 		<AppShell.Header className={classes['header']}>
 			<div className={classes['header__content']}>
 				<span className={classes['header__logo']}>
@@ -15,7 +14,5 @@ export const Header = (): JSX.Element => {
 				<Navbar/>
 			</div>
 		</AppShell.Header>
-
-
 	);
 };

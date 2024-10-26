@@ -1,14 +1,14 @@
 import { JSX } from 'react';
-import UserSvg from '@shared/svg/user.svg?react';
+import classes from './mainPage.module.scss';
+import { Outlet } from 'react-router-dom';
 
 type MainPageProps = {}
 
 export const MainPage = ({}: MainPageProps): JSX.Element => {
 
 	return (
-		<div>
-			<UserSvg/>
-			Main Page
+		<div className={classes['layout']}>
+			<Outlet/>
 		</div>
 	);
 };

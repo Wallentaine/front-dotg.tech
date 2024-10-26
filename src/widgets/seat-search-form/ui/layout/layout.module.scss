@@ -1,6 +1,27 @@
 @use "@shared/styles/palette";
 
 .container {
-  border: 2px palette.$orange-1 solid;
-  border-radius: 17px
+  display: flex;
+
+  &__inputs {
+    background-color: palette.$orange-1;
+    width: 100%;
+    border: 5px palette.$orange-1 solid;
+    border-right: 0;
+    border-radius: 17px 0 0 17px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+    &Destination {
+      width: 70%;
+      display: flex;
+    }
+
+    &Date {
+      display: flex;
+    }
+
+  }
+
 }
