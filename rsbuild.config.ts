@@ -8,9 +8,6 @@ import { getEnv } from './config/env/getEnv';
 
 configDotenv();
 export default defineConfig({
-	output: {
-		assetPrefix: './'
-	},
 	tools: {
 		postcss: config => {
 			config?.postcssOptions?.plugins?.push(postcssMantine);
