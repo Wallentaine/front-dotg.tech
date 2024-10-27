@@ -14,6 +14,6 @@ export const useGetTrains = ({ to, date, from }: GetAllTrainsParams) => {
 	const isValidAnswer = swrResponse.data && 'length' in swrResponse.data;
 	return {
 		...swrResponse,
-		data: isValidAnswer ? swrResponse.data : json
+		data: isValidAnswer ? swrResponse.data : []
 	};
 };
