@@ -5,7 +5,8 @@ import { useFilterStore } from '@entities/filters/lib/store/FiltersStore';
 import { useShallow } from 'zustand/react/shallow';
 import dayjs from 'dayjs';
 import { NotFound } from '@shared/components/not-found';
-
+import { replace } from "react-router-dom";
+import { RoutesKeys } from '@app/lib/consts/routes';
 type NotFoundTrainsProps = {}
 
 export const NotFoundTrains = ({}: NotFoundTrainsProps): JSX.Element => {

@@ -38,7 +38,7 @@ export const WagonNumberSelect = ({}: WagonSelectProps): JSX.Element => {
 		setValue('wagonId', '');
 	}, [ watchedType ]);
 	return watchedType && <div>
-        <div style={{ marginBottom: '10px' }}><Text size={'sm'} fw={'600'}>Номер вагона</Text></div>
+        <div style={{ marginBottom: '5px' }}><Text size={'sm'} fw={'600'}>Номер вагона</Text></div>
         <div className={classes['list']}>
 			{searchedWagons.map((wagon, index) =>
 				<Button

@@ -12,6 +12,7 @@ export type CreatePreferenceDto = {
 }
 
 export const createPreference = async (body: CreatePreferenceDto) => {
+	console.log(body);
 	const { data } = await mainApi.post<CreatePreferenceDto>('/g/booking/stand-queue', { body });
 	return data;
 };

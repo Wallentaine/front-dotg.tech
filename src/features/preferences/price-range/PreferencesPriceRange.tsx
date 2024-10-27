@@ -1,6 +1,5 @@
 import { JSX } from 'react';
 import { PreferencesInputGroup } from '@entities/preferences/ui/preferences-input-group/PreferencesInputGroup';
-import { RoundInput } from '@shared/components/round-input/ui/RoundInput';
 import { useFormContext } from 'react-hook-form';
 import { TextInput } from '@mantine/core';
 

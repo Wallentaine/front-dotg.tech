@@ -32,8 +32,8 @@ export const TrainList = (): JSX.Element => {
 		date: savedFilters?.departureDate,
 		from: savedFilters?.departure
 	});
-	const renderingTrains = trains?.filter((train) => Boolean(train?.available_seats_count));
 
+	const renderingTrains = trains?.filter((train) => Boolean(train?.available_seats_count));
 
 	if (!isLoading && renderingTrains?.length === 0) {
 		return (
@@ -45,7 +45,7 @@ export const TrainList = (): JSX.Element => {
 		<div className={classes['container']}>
 			<SelectSeatForm/>
 			<div className={classes['list']}>
-				{renderingTrains.map(({ train_id, detailed_route, available_seats_count, wagons_info }) => {
+				{renderingTrains?.map(({ train_id, detailed_route, available_seats_count, wagons_info }) => {
 						const departureInfo = detailed_route[0];
 						const arrivalInfo = detailed_route[detailed_route.length - 1];
 						const parseFormat = 'DD.MM.YYYY HH:mm:ss';
