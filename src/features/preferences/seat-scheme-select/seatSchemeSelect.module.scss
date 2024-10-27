@@ -3,3 +3,16 @@
   flex-wrap: wrap;
   gap: 10px;
 }
+
+
+.blockList {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.block {
+  border: 1px #fd7e14 solid;
+  border-radius: 10px;
+  padding: 15px;
+}

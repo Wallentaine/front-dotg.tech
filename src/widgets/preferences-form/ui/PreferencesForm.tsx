@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 import Form from '@shared/react-hook-form/components/form/Form';
 import { useForm } from 'react-hook-form';
-import { Button, Select } from '@mantine/core';
+import { Button } from '@mantine/core';
 import classes from './preferencesForm.module.scss';
 import { PreferencesDateRange } from '@features/preferences/date-range/PreferencesDateRange';
 import { PreferencesPriceRange } from '@features/preferences/price-range/PreferencesPriceRange';
@@ -11,27 +11,49 @@ import { ReserveCount } from '@features/preferences/reserve-count/ReserveCount';
 import { usePreferencesModalStore } from '@entities/preferences/lib/store/PreferencesModalStore';
 import { PreferSeat } from '@features/preferences/prefer-seat/PreferSeat';
 import { useCreatePreference } from '@entities/preferences/lib/swr/useCreatePreference';
+import { useFilterStore } from '@entities/filters/lib/store/FiltersStore';
+import { useShallow } from 'zustand/react/shallow';
+import { dayjsInstance } from '@shared/config/dayjsConfig';
+
+const SeatPreferDict = {
+	'Верхнее': 'upper',
+	'Нижнее': 'lower'
+};
 
 export const PreferencesForm = (): JSX.Element => {
 
 	const methods = useForm();
 
 	const createPreference = useCreatePreference();
-
+	const [ destination, departure ] = useFilterStore(useShallow(({
+		destination,
+		departure
+	}) => [ destination, departure ]));
 	const closeModal = usePreferencesModalStore(({ close }) => close);
 	const handleSubmit = (data: any) => {
-		createPreference(data);
+		const format = 'YYYYMMDD';
+		const formattedDateFrom = dayjsInstance().format(format);
+		const formattedDateTo = dayjsInstance(data.dateTo).format(format);
+		createPreference({
+			...data,
+			departure_dates: [ formattedDateFrom, formattedDateTo ],
+			from: destination,
+			to: departure,
+			seatCount: data.reserveCount,
+			preferSeat: SeatPreferDict[data.preferSeat]
+
+		});
 		closeModal();
+		methods.reset();
 	};
 
 	return (
 
-		<PreferencesFormModal>
+		<PreferencesFormModal onClose={() => methods.reset()}>
 			<div className={classes['container']}>
 				<div className={classes['title']}>
 					Не нашли подходящий билет? <br/>
-					Укажите предпочтения и мы забронируем
-					или&nbsp;оповестим о новых билетах в продаже
+					Укажите предпочтения и мы забронируем билеты, когда они появятся в продаже
 				</div>
 
 				<div className={classes['formContainer']}>
@@ -51,7 +73,7 @@ export const PreferencesForm = (): JSX.Element => {
 								type={'submit'}
 								onSubmit={(e) => e.preventDefault()}
 							>
-								Забронировать
+								Встать в очередь
 							</Button>
 						</div>
 					</Form>

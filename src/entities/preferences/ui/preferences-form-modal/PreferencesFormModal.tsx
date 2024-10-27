@@ -3,17 +3,26 @@ import { usePreferencesModalStore } from '@entities/preferences/lib/store/Prefer
 import { useShallow } from 'zustand/react/shallow';
 import { Modal, ScrollArea } from '@mantine/core';
 
-export const PreferencesFormModal = ({ children }: PropsWithChildren): JSX.Element => {
+type PreferencesFormModalProps = {
+	onClose?: () => void
+} & PropsWithChildren
+
+export const PreferencesFormModal = ({ children, onClose }: PreferencesFormModalProps): JSX.Element => {
 
 	const [ close, isOpen ] = usePreferencesModalStore(useShallow(({ close, isOpen }) => [ close, isOpen ]));
+
+	const handleClose = () => {
+		onClose && onClose();
+		close();
+	};
 
 	return (
 		<Modal
 			opened={isOpen}
-			onClose={close}
+			onClose={handleClose}
 			centered
 			size={'700px'}
-			styles={{header: {display: 'none'}}}
+			styles={{ header: { display: 'none' } }}
 			scrollAreaComponent={ScrollArea.Autosize}
 			yOffset={0}
 			radius={'lg'}
