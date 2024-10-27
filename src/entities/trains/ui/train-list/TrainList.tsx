@@ -33,7 +33,7 @@ export const TrainList = (): JSX.Element => {
 		from: savedFilters?.departure
 	});
 
-	const renderingTrains = trains.filter((train) => Boolean(train.available_seats_count));
+	const renderingTrains = trains?.filter((train) => Boolean(train.available_seats_count));
 
 
 	if (!isLoading && renderingTrains?.length === 0) {
