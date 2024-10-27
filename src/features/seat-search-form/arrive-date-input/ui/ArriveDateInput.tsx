@@ -1,26 +1,23 @@
 import { JSX } from 'react';
-import { SearchSeatFormFieldNames } from '@entities/search-seat/consts/SearchSeatFormFieldNames';
 import { RoundDatePicker } from '@shared/components/round-input/ui/RoundDatePicker';
-import { useController, useFormContext } from 'react-hook-form';
-import { SearchSeatFormData } from '@entities/search-seat';
+import { useFilterStore } from '@entities/filters/lib/store/FiltersStore';
+import { useShallow } from 'zustand/react/shallow';
 
 type ArriveDateInputProps = {}
 
 export const ArriveDateInput = ({}: ArriveDateInputProps): JSX.Element => {
 
-	const { ARRIVE_DATE } = SearchSeatFormFieldNames;
+	const [ departureDate, setDepartureDate ] = useFilterStore(useShallow(({
+		departureDate,
+		setDepartureDate
+	}) => [ departureDate, setDepartureDate ]));
 
-	const { control, setValue } = useFormContext<SearchSeatFormData>();
-
-	const { field: { ref, ...field } } = useController({
-		name: ARRIVE_DATE,
-		control,
-	});
 	return (
 		<RoundDatePicker
-			externalRef={ref}
-			{...field}
-			onClear={() => {setValue(ARRIVE_DATE, null);}}
+			isClearable
+			value={departureDate}
+			onChange={setDepartureDate}
+			onClear={() => setDepartureDate(null)}
 			position={'middle'}
 			placeholder={'Дата отправления'}
 		/>

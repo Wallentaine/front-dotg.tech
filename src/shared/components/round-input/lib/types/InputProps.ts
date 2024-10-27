@@ -1,17 +1,23 @@
-import { UseControllerReturn, UseFormRegisterReturn } from 'react-hook-form';
-import { Ref } from 'react';
+import { ChangeEvent, CSSProperties, Ref } from 'react';
+import { DateValue } from '@mantine/dates';
 
 export type RoundInputProps = {
 	position: 'left' | 'right' | 'middle'
 	onClear: () => void
 	placeholder: string
 	externalClasses?: string
+	externalStyles?: any
+	isClearable?: boolean
+	externalRef?: Ref<any>
 }
 
 export type RoundTextInputProps = {
-	register: UseFormRegisterReturn
+	type?: string
+	value?: string,
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void
 } & RoundInputProps
 
 export type RoundDateInputProps = {
-	externalRef: Ref<any>
-} & RoundInputProps & Omit<UseControllerReturn['field'], 'ref'>
+	value: DateValue
+	onChange: (date: DateValue) => void
+} & RoundInputProps

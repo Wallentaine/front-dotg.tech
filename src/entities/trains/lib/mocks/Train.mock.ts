@@ -2,6 +2,7 @@ import { TrainInfo } from '@entities/trains/lib/types/Train.types';
 
 export const Trains: TrainInfo[] = [
 	{
+		id: '12312312312',
 		departureInfo: {
 			time: '15:40',
 			station: 'Московский вокзал',
@@ -19,6 +20,7 @@ export const Trains: TrainInfo[] = [
 		minimalPrice: '1799'
 	},
 	{
+		id: 'asdasdada',
 		departureInfo: {
 			time: '15:40',
 			station: 'Московский вокзал',
@@ -36,6 +38,7 @@ export const Trains: TrainInfo[] = [
 		minimalPrice: '1799'
 	},
 	{
+		id: '12312312312asdasdsad',
 		departureInfo: {
 			time: '15:40',
 			station: 'Московский вокзал',

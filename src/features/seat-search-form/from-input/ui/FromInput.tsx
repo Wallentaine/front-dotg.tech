@@ -1,24 +1,24 @@
 import { JSX } from 'react';
-import { useInput } from '@shared/react-hook-form/hooks/useInput';
-import { SearchSeatFormFieldNames } from '@entities/search-seat/consts/SearchSeatFormFieldNames';
 import { RoundInput } from '@shared/components/round-input/ui/RoundInput';
-import { useFormContext } from 'react-hook-form';
-import { SearchSeatFormData } from '@entities/search-seat';
+import { useFilterStore } from '@entities/filters/lib/store/FiltersStore';
+import { useShallow } from 'zustand/react/shallow';
 
 export const FromInput = (): JSX.Element => {
 
-	const { FROM } = SearchSeatFormFieldNames;
-
-	const { register } = useInput(FROM);
-
-	const { setValue } = useFormContext<SearchSeatFormData>();
+	const [ departure, setDeparture ] = useFilterStore(useShallow(({
+		departure,
+		setDeparture
+	}) => [ departure, setDeparture ]));
 
 	return (
 		<RoundInput
-			onClear={() => {setValue(FROM, '');}}
-			register={register}
+			value={departure}
+			onChange={(e) => setDeparture(e.target.value)}
+			onClear={() => {setDeparture('');}}
 			position={'left'}
 			placeholder={'Откуда'}
+			isClearable
+			externalStyles={{ wrapper: { width: '45%' } }}
 		/>
 	);
 };

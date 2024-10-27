@@ -9,20 +9,24 @@ export const RoundDatePicker = ({
 	position,
 	placeholder,
 	onClear,
-	externalRef,
-	...field
+	onChange,
+	value,
+	isClearable,
+	externalRef
 }: RoundDateInputProps): JSX.Element => {
 	return (
 		<DatePickerInput
 			ref={externalRef}
-			{...field}
+			value={value}
 			valueFormat={'DD.MM.YYYY'}
 			{...getRoundInputProps({
 				position,
 				placeholder,
 				onClear,
-				externalClasses: classes['datePickerInput']
+				externalClasses: classes['datePickerInput'],
+				isClearable
 			})}
+			onChange={onChange}
 			styles={{
 				wrapper: { width: '200px', display: 'flex', alignItems: 'center' },
 				input: { paddingTop: '0', paddingBottom: '0' }

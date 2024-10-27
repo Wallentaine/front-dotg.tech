@@ -4,7 +4,7 @@ import classes from '@shared/components/round-input/ui/roundInput.module.scss';
 import { CloseButton } from '@mantine/core';
 import CircleCrossSvg from '@shared/svg/circle-cross.svg?react';
 
-export const getRoundInputProps = ({ onClear, placeholder, position }: RoundInputProps) => {
+export const getRoundInputProps = ({ onClear, placeholder, position, isClearable }: RoundInputProps) => {
 
 	return {
 		size: 'md' as const,
@@ -15,10 +15,10 @@ export const getRoundInputProps = ({ onClear, placeholder, position }: RoundInpu
 			classes[`input_${position}`]
 		),
 		rightSectionPointerEvents: 'all' as const,
-		rightSection: <CloseButton
-			className={classes['input__cross']}
-			icon={<CircleCrossSvg/>}
-			onClick={onClear}
-		/>
+		rightSection: isClearable && <CloseButton
+            className={classes['input__cross']}
+            icon={<CircleCrossSvg/>}
+            onClick={onClear}
+        />
 	};
 };

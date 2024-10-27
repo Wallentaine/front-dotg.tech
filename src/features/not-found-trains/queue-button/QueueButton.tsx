@@ -1,8 +1,20 @@
 import { JSX } from 'react';
 import { Button } from '@mantine/core';
+import { usePreferencesModalStore } from '@entities/preferences/lib/store/PreferencesModalStore';
+import { useShallow } from 'zustand/react/shallow';
 
-type QueueButtonProps = {}
 
-export const QueueButton = ({}: QueueButtonProps): JSX.Element => {
-	return (<Button size={'lg'} radius={'md'}>Встать в очередь</Button>);
+export const QueueButton = (): JSX.Element => {
+
+	const open = usePreferencesModalStore(useShallow(({ open }) => open));
+
+	return (
+		<Button
+			size={'lg'}
+			radius={'md'}
+			onClick={open}
+		>
+			Встать в очередь
+		</Button>
+	);
 };

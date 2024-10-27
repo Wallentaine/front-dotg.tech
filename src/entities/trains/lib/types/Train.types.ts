@@ -5,10 +5,11 @@ export type Station = {
 }
 
 export type TrainInfo = {
+	id: number
 	departureInfo: Station
 	arrivalInfo: Station
 	travelTime: string
-	availableSeats: string
+	availableSeats: number
 	coupePrice: string
 	platzkartPrice: string
 	minimalPrice: string

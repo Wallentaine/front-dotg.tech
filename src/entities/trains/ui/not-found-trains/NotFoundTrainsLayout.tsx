@@ -6,25 +6,25 @@ type NotFoundTrainsProps = {
 	destination: string
 	date: string
 	queueButton: ReactNode
-	neighbourSelect: ReactNode
 }
 
 export const NotFoundTrainsLayout = ({
 	date,
 	departure,
 	destination,
-	neighbourSelect,
 	queueButton
 }: NotFoundTrainsProps): JSX.Element => {
 	return (
-		<div className={classes['container']}>
+		<div className={classes['layout']}>
+			<div className={classes['container']}>
 	        <span className={classes['title']}>
 		        Билетов по железнодорожному рейсу {departure} - {destination} на {date} не найдено
 	        </span>
-			<div className={classes['actions']}>
-				{queueButton}
-				{neighbourSelect}
+				<div className={classes['actions']}>
+					{queueButton}
+				</div>
 			</div>
 		</div>
+
 	);
 };

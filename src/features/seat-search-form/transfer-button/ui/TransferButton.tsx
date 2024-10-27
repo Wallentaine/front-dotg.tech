@@ -1,23 +1,15 @@
 import { JSX } from 'react';
 import classes from './transferButton.module.scss';
 import TransferSvg from '@shared/svg/transfer.svg?react';
-import { useFormContext } from 'react-hook-form';
-import { SearchSeatFormFieldNames } from '@entities/search-seat/consts/SearchSeatFormFieldNames';
+import { useFilterStore } from '@entities/filters/lib/store/FiltersStore';
 
 export const TransferButton = (): JSX.Element => {
 
-	const { FROM, TO } = SearchSeatFormFieldNames;
-
-	const { setValue, getValues } = useFormContext();
+	const swap = useFilterStore(({ swap }) => swap);
 
 	return (
 		<button
-			onClick={(e) => {
-				e.preventDefault();
-				const [ from, to ] = getValues([ FROM, TO ]);
-				setValue(FROM, to);
-				setValue(TO, from)
-			}}
+			onClick={() => swap()}
 			className={classes['button']}
 		>
 			<TransferSvg/>
