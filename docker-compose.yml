@@ -1,0 +1,10 @@
+services:
+  dotg-frontend:
+    build:
+      context: .
+      dockerfile: ./docker/prod/Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    restart: on-failure
