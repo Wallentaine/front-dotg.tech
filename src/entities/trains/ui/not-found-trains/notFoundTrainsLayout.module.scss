@@ -1,0 +1,37 @@
+.layout {
+  height: calc(100vh - 351px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("public/18cc0cc66d9c2d87e43a7d74e1da785a.jpg") center / cover;
+  border-radius: 26px 26px 0 0;
+  margin-top: 100px;
+}
+
+.container {
+  display: inline-flex;
+  padding: 70px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 61px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.title {
+  width: 744px;
+  color: #141517;
+  text-align: center;
+
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}

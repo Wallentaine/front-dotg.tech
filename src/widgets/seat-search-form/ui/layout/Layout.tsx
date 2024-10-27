@@ -1,15 +1,36 @@
 import { JSX, ReactNode } from 'react';
 import classes from './layout.module.scss';
-import { FromInput } from '@features/seat-search-form/from-input';
 
 type LayoutProps = {
 	fromInput: ReactNode
+	toInput: ReactNode
+	submitButton: ReactNode
+	transferButton: ReactNode
+	arriveDateInput: ReactNode
 }
 
-export const Layout = ({ fromInput }: LayoutProps): JSX.Element => {
+export const Layout = ({
+	fromInput,
+	toInput,
+	submitButton,
+	transferButton,
+	arriveDateInput,
+}: LayoutProps): JSX.Element => {
 	return (
 		<div className={classes['container']}>
-			<FromInput/>
+			<div className={classes['container__inputs']}>
+				<div className={classes['container__inputsDestination']}>
+					{fromInput}
+					{transferButton}
+					{toInput}
+				</div>
+				<div className={classes['container__inputsDate']}>
+					{arriveDateInput}
+				</div>
+			</div>
+			<div>
+				{submitButton}
+			</div>
 		</div>
 	);
 };

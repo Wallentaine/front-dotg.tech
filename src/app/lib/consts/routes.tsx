@@ -1,31 +1,40 @@
 import { MainPage } from '@pages/main';
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
-import { AboutPage } from '@pages/about';
 import { AppLayout } from '@app/ui/layout/AppLayout';
-import { NotFoundPage } from '@pages/not-found';
+import { TrainPage } from '@pages/train-page/ui/TrainPage';
+import { NotFound } from '@shared/components/not-found';
+import { TrainSelect } from '@widgets/train-select/ui/train-select/TrainSelect';
+import { PreferencesForm } from '@widgets/preferences-form/ui/PreferencesForm';
 
 export enum RoutesKeys {
 	ROOT = '/',
 	MAIN = '/',
-	ABOUT = 'about',
+	NOT_FOUND_TRAINS = 'notFoundTrains',
+	TRAIN_LIST = 'trainList',
+	NOT_FOUND = 'notFound',
+	PREFERENCES_PAGE = 'preferencesPage'
 }
 
 export const routes: RouteObject[] = [
 	{
-		path: RoutesKeys.ROOT,
 		element: <AppLayout/>,
 		children: [
 			{
 				path: RoutesKeys.MAIN,
-				element: <MainPage/>
+				element: <MainPage/>,
 			},
 			{
-				path: RoutesKeys.ABOUT,
-				element: <AboutPage/>
+				element: <TrainPage/>,
+				children: [
+					{
+						path: RoutesKeys.TRAIN_LIST,
+						element: <TrainSelect/>
+					},
+				]
 			},
 			{
 				path: '*',
-				element:  <NotFoundPage/>
+				element: <NotFound/>
 			}
 		],
 	},

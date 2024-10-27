@@ -1,14 +1,14 @@
 import { JSX } from 'react';
-import UserSvg from '@shared/svg/user.svg?react';
+import classes from './mainPage.module.scss';
 
 type MainPageProps = {}
 
 export const MainPage = ({}: MainPageProps): JSX.Element => {
 
 	return (
-		<div>
-			<UserSvg/>
-			Main Page
+		<div className={classes['layout']}>
+
+
 		</div>
 	);
 };

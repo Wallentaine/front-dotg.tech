@@ -1,0 +1,32 @@
+
+.container {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputsAndSubmit {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.formContainer {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  color: #141517;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}

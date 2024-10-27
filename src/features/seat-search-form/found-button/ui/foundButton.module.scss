@@ -1,0 +1,19 @@
+@use '@shared/styles/palette';
+@use '@shared/styles/normalize';
+
+.button {
+  background-color: palette.$orange-1;
+  @include normalize.normalized-button;
+  border-radius: 0 12px 12px 0;
+  height: 100%;
+  width: 129px;
+  color: #FFF;
+  transition: 0.2s;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(90%);
+  }
+  &:active {
+    filter: brightness(85%);
+  }
+}
