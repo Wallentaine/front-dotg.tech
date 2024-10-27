@@ -36,8 +36,6 @@ export const SeatSchemeSelect = (): JSX.Element => {
 
 	const groupedSeats = groupBy(seats, 'block');
 
-
-	const renderingSeats = seats.sort((a, b) => Number(a.seatNum) - Number(b.seatNum));
 	return watchedWagonId &&
         <div>
             <div style={{ marginBottom: '5px' }}><Text size={'sm'} fw={600}>Выберите место</Text></div>

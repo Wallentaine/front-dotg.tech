@@ -11,7 +11,7 @@ export const useGetTrains = ({ to, date, from }: GetAllTrainsParams) => {
 		([ _key, from, to, date ]) => getAllTrains({ from, date: dayjs(date).add(3, 'hours').toISOString(), to }),
 		{ refreshInterval: 5000, }
 	);
-	const isValidAnswer = swrResponse.data && 'length' in swrResponse.data;
+	const isValidAnswer = swrResponse.data && typeof swrResponse.data ==='object';
 	return {
 		...swrResponse,
 		data: isValidAnswer ? swrResponse.data : []
