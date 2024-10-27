@@ -25,7 +25,7 @@ export const TrainList = (): JSX.Element => {
 
 	const savedFilters = useFilterStore(({ savedFilters }) => savedFilters);
 
-	const openPreferences = usePreferencesModalStore(({open}) => open);
+	const openPreferences = usePreferencesModalStore(({ open }) => open);
 
 	const { data: trains, isLoading } = useGetTrains({
 		to: savedFilters?.destination,
@@ -33,7 +33,7 @@ export const TrainList = (): JSX.Element => {
 		from: savedFilters?.departure
 	});
 
-	const renderingTrains = trains?.filter((train) => Boolean(train.available_seats_count));
+	const renderingTrains = trains?.filter((train) => Boolean(train?.available_seats_count));
 
 
 	if (!isLoading && renderingTrains?.length === 0) {
