@@ -13,7 +13,7 @@ export const PreferSeat = (): JSX.Element => {
 		<div>
 			<Select
 				{...field}
-				label="Предпочитаемое мест"
+				label="Предпочитаемое место"
 				placeholder="Выберите значение"
 				data={[ 'Верхнее', 'Нижнее' ]}
 			/>

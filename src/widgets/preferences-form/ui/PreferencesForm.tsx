@@ -41,7 +41,6 @@ export const PreferencesForm = (): JSX.Element => {
 			to: departure,
 			seatCount: data.reserveCount,
 			preferSeat: SeatPreferDict[data.preferSeat]
-
 		});
 		closeModal();
 		methods.reset();
