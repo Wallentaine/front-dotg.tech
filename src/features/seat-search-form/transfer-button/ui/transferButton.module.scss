@@ -1,0 +1,20 @@
+@use '@shared/styles/normalize';
+
+.button {
+  @include normalize.normalized-button;
+  width: 60px;
+  align-self: center;
+  height: fit-content;
+  display: inline-flex;
+  color: #CED4DA;
+  & svg {
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(90%)
+    }
+  }
+
+
+}

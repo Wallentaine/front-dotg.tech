@@ -11,7 +11,9 @@ export const AppLayout = (): JSX.Element => {
 		<AppShell header={{ height: '81px' }} className={classes['layout']}>
 			<Header/>
 			<AppShell.Main>
-				<SeatSearchForm/>
+				<div className={classes['searchContainer']}>
+					<SeatSearchForm/>
+				</div>
 				<div className={classes['main__content']}>
 					<Outlet/>
 				</div>
