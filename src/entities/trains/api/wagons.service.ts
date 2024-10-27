@@ -11,6 +11,5 @@ export const getAllTrains = async (params: GetAllTrainsParams): Promise<Train[]>
 	const { data } = await mainApi.get<Train[]>('/g/booking/search', {
 		params
 	});
-	console.log(data);
 	return data;
 };
