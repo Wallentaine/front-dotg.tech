@@ -32,7 +32,7 @@ export const TrainList = (): JSX.Element => {
 		date: savedFilters?.departureDate,
 		from: savedFilters?.departure
 	});
-	console.log(trains);
+	console.log(trains,'trains');
 	const renderingTrains = trains?.filter((train) => Boolean(train?.available_seats_count));
 
 
